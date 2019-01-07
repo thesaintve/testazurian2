@@ -1,0 +1,9 @@
+com/mycom/servicio/impl/JsonTransformerImplJackson.class
+com/mycom/servicio/impl/VehiculoServicioImpl.class
+com/mycom/servicio/impl/PersistenServiceImpl.class
+com/mycom/servicio/PersistenService.class
+com/mycom/modelo/Vehiculo_.class
+com/mycom/servicio/VehiculoServicio.class
+com/mycom/servicio/JsonTransformer.class
+com/mycom/modelo/Vehiculo.class
+com/mycom/endpoint/VehiculoControlador.class

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html ng-app="app">
+ 
+  <head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+    <script src="script.js"></script>
+    <title ng-bind="titulo" ></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+  </head>
+ 
+  <body ng-controller="VehiculoController">
+    <div class="container">
+    <h2 ng-bind="titulo" class="mt-4" ></h2>       
+    <div class="col-md-8 mt-4">
+        <div class="row">
+            <input type="text" placeholder="Matricula" ng-model="item.matricula" class="form-control" maxlength="6" />
+        </div>
+        <div class="row">
+            <input type="text" placeholder="Modelo" ng-model="item.modelo" class="form-control" maxlength="20" />
+        </div>
+        <div class="row">
+            <input type="number" placeholder="Kilometraje" ng-model="item.kilometraje" class="form-control"  maxlength="9" />
+        </div>
+        <div class="row mt-4">
+            <button type="button" ng-click="nuevo()" class="btn mr-1" >Nuevo</button>
+            <button type="button" ng-click="guardarItem()" class="btn btn-info mr-1" >Guardar</button>
+            <button type="button" class="btn btn-danger mr-1" data-toggle="modal" data-target="#myModal" ng-show="seleccionado">Borrar</button>
+        </div>
+    </div>
+
+    <table class="table table-hover mt-5">
+        <thead>
+          <tr>
+            <th>Matricula</th>
+            <th>Modelo</th>
+            <th>Kilometraje</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="elitem in lstItem" ng-style="{color:($odd?'red':'green')}" >
+            <td ng-click="openEdit(elitem)" >{{elitem.matricula}}</td>
+            <td ng-click="openEdit(elitem)" >{{elitem.modelo}}</td>
+            <td ng-click="openEdit(elitem)" >{{elitem.kilometraje}}</td>
+          </tr>
+        </tbody>
+    </table>
+
+    <ng-include src="'crudModalSiNo.html'"></ng-include>
+
+  </body>
+ 
+</html>
